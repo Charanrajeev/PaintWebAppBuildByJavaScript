@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/651a67f225.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" ></script>
+
+
+</head>
+<body>
+    
+<div class="app">
+    <div class="controls">
+        <div class="title">Sketch</div>
+        <div class="type">
+            <input type="radio" name="pen-type" id="pencil" >
+            <label for="pencil">
+                <i class="fa fa-pencil"></i>
+            </label>
+            <input type="radio" name="pen-type" id="pen">
+            <label for="pen">
+                <i class="fa fa-paint-brush"></i>
+            </label>
+
+            <label for="size">Size</label>
+            <input type="range" class="range-size" id="size" min="1" max="50">
+            <label for="color">Color</label>
+            <input type="color" id="color_selection"  class="color">
+            <button  id="reset">Reset</button>
+            <button  id="save" onclick="saveIt()">Save</button>
+
+        </div>
+    </div>
+   <div class="canvas_display">
+    <canvas id="canvas"></canvas>
+    <div class="author">
+        <input type="text" id="author" value=" Developed By Charan Rajeev Sampangi" disabled>
+       </div>
+   </div>
+   
+</div>
+    <script>
+        function saveIt(){
+        var canvas= document.getElementById('canvas')
+canvas.toBlob(function(blob) {
+    saveAs(blob, "pretty image.png");
+});
+        }
+    </script>
+</body>
+</html>
